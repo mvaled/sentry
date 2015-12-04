@@ -934,3 +934,12 @@ def get_raven_config():
     }
 
 RAVEN_CONFIG = get_raven_config()
+
+import pkg_resources
+k = pkg_resources.get_distribution('kombu')
+
+if k.parsed_version >= (3, 0, 28):
+    # Kombu 3.0.28 no longer support South by default.
+    SOUTH_MIGRATION_MODULES = {
+        'kombu_transport_django': 'kombu.transport.django.south_migrations',
+    }
