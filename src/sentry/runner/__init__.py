@@ -50,6 +50,8 @@ map(lambda cmd: cli.add_command(import_string(cmd)), (
     'sentry.runner.commands.repair.repair',
     'sentry.runner.commands.start.start',
     'sentry.runner.commands.upgrade.upgrade',
+
+    'sentry.runner.commands.watchdog.watchdog',
 ))
 
 
