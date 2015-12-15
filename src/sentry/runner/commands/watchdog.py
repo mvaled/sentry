@@ -69,7 +69,9 @@ class WatchdogTicker(Polaroid):
                 for pid in children:
                     if psutil.pid_exists(pid):
                         try:
-                            os.kill(pid, signal.SIGKILL)
+                            _logger.info('Sending SIGTERM to %d',
+                                         pid)
+                            os.kill(pid, signal.SIGTERM)
                         except:
                             pass
             except:
